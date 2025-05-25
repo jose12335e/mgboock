@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Elegirte es mi Pasion</title>
+
+  <!-- Tipografía limpia y romántica -->
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="st_hojas.css" />
+</head>
+<body>
+
+  <!-- Pantalla de Autenticación -->
+  <div id="auth-container" class="book-container centered">
+    <h2>💖 Ingrese su PIN</h2>
+    <input type="password" id="pin-input" placeholder="••••" />
+    <button onclick="verifyPin()">Verificar</button>
+    <p id="error-message" class="error-message">PIN incorrecto. Inténtelo de nuevo.</p>
+  </div>
+
+  <!-- Contenido desbloqueado -->
+  <div id="content-container" class="success-box" style="display: none;">
+    <div class="success-inner">
+      <div class="success-image-container">
+        <img src="Mi imagen de ChatGPT.png" alt="Imagen de la pareja" class="success-image" />
+      </div>
+      <div class="success-text">
+        <h2>¡Acceso concedido Vanessa!</h2>
+        <p>Estás lista para comenzar tu viaje emocional. Haz clic en el botón para ir al índice.</p>
+        <button onclick="goToChapter('capitulos.html')">Ir al índice</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Corazones flotantes -->
+  <div id="tree-container"></div>
+
+  <!-- Scripts -->
+  <script src="auth.js"></script>
+  <script src="cg_hojas.js"></script>
+  <script src="tree.js"></script>
+</body>
+</html>

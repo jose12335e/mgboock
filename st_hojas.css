@@ -1,0 +1,323 @@
+/* Estilos generales */
+body {
+    margin: 0;
+    padding: 40px 20px;
+    font-family: 'Dancing Script', cursive;
+    background: #f5f0e6;
+    background-image: url('https://www.transparenttextures.com/patterns/paper.png');
+    background-size: cover;
+    background-attachment: fixed;
+    color: #4b2e2e;
+    line-height: 2.1;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+}
+
+/* Contenedor tipo libro */
+.book-container {
+    max-width: 800px;
+    width: 100%;
+    background-color: #fffef8;
+    padding: 3rem 3rem 4rem;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.15);
+    border: 1px solid #d2cfc5;
+    border-radius: 2px;
+    font-size: 1.4rem;
+    text-align: justify;
+    text-indent: 2em;
+}
+
+/* Título */
+h1 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 3rem;
+    color: #7a3e1d;
+    text-align: center;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    margin-bottom: 2rem;
+}
+
+/* Botón */
+button {
+    background-color: #8b4513;
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-bottom: 2rem;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: 'Dancing Script', cursive;
+}
+
+button:hover {
+    background-color: #a9552a;
+    transform: scale(1.05);
+}
+
+/* Links */
+.nav a {
+    font-size: 1.5em;
+    color: #5a3e2b;
+    text-decoration: none;
+    margin: 10px 0;
+    display: block;
+    transition: color 0.3s ease, transform 0.3s ease;
+    font-family: 'Zeyada', cursive;
+}
+
+.nav a:hover {
+    color: #a0522d;
+    transform: scale(1.05);
+}
+
+/* Efecto página flotando ligeramente */
+.book-container:hover {
+    transform: rotateZ(-0.3deg) scale(1.001);
+    transition: transform 0.3s ease;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.3rem;
+    }
+
+    .nav a {
+        font-size: 1.2em;
+    }
+
+    .book-container {
+        padding: 1.5rem;
+        font-size: 1.2rem;
+    }
+
+    button {
+        font-size: 1rem;
+        padding: 0.6rem 1.2rem;
+    }
+
+    #tree-container {
+        min-height: 300px;
+    }
+}
+
+/* Contenedor del árbol */
+#tree-container {
+    position: relative;
+    width: 100%;
+    min-height: 400px;
+    background: url('../imagenes/mi_imagen_chatgpt.png') no-repeat center center;
+    background-size: cover;
+    overflow: hidden;
+    margin-top: 20px;
+}
+
+/* Animación corazones */
+.heart {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: #ff69b4;
+    transform: rotate(-45deg);
+    animation: fall linear infinite;
+}
+
+.heart::before,
+.heart::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: #ff69b4;
+    border-radius: 50%;
+    z-index: -1;
+}
+
+.heart::before {
+    top: -10px;
+    left: 0;
+}
+
+.heart::after {
+    top: 0;
+    left: 10px;
+}
+
+@keyframes fall {
+    0% { top: -50px; opacity: 0; }
+    50% { opacity: 1; }
+    100% { top: 100vh; opacity: 0; }
+}
+
+/* Estilo de Inicio (PIN) */
+#auth-container {
+    background-color: #fffef8;
+    padding: 2rem 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 350px;
+    margin: 3rem auto;
+    animation: fadeIn 0.6s ease-in-out;
+    font-family: 'Dancing Script', cursive;
+    width: 100%;
+}
+
+#auth-container h2 {
+    font-size: 2rem;
+    color: #7a3e1d;
+    margin-bottom: 1.2rem;
+}
+
+#auth-container input[type="password"] {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    font-size: 1rem;
+    border: 1px solid #cfcfc5;
+    border-radius: 6px;
+    margin-bottom: 1.2rem;
+    font-family: inherit;
+    box-sizing: border-box;
+    background-color: #fdf9f2;
+}
+
+#auth-container button {
+    background-color: #8b4513;
+    color: white;
+    border: none;
+    padding: 0.7rem 1.2rem;
+    font-size: 1.1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Dancing Script', cursive;
+    transition: background-color 0.3s ease;
+}
+
+#auth-container button:hover {
+    background-color: #a9552a;
+}
+
+#error-message {
+    color: crimson;
+    font-size: 0.95rem;
+    margin-top: 0.5rem;
+    display: none;
+    font-family: inherit;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Contenedor de éxito post-PIN */
+.success-box {
+    text-align: center;
+    padding: 2rem;
+    max-width: 600px;
+    margin: 3rem auto;
+}
+
+.success-box h2 {
+    font-size: 2rem;
+    color: #7a3e1d;
+    margin-top: 1rem;
+}
+
+.success-box p {
+    font-size: 1.2rem;
+    margin: 1rem 0 2rem;
+    line-height: 1.6;
+}
+
+.success-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+@media (max-width: 500px) {
+    .success-box {
+        padding: 1rem;
+    }
+
+    .success-box h2 {
+        font-size: 1.5rem;
+    }
+
+    .success-box p {
+        font-size: 1rem;
+    }
+
+    .success-image {
+        width: 100%;
+        border-radius: 8px;
+    }
+}
+
+/* Dashboard de Capítulos */
+.chapter-dashboard {
+    max-width: 600px;
+    margin: 4rem auto;
+    background-color: #fffef8;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    font-family: 'Dancing Script', cursive;
+}
+
+.chapter-dashboard h1 {
+    font-size: 2.6rem;
+    color: #7a3e1d;
+    margin-bottom: 2rem;
+}
+
+.chapter-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.chapter-list li {
+    margin-bottom: 1rem;
+}
+
+.chapter-list a {
+    font-size: 1.4rem;
+    color: #5a3e2b;
+    text-decoration: none;
+    padding: 0.4rem 1rem;
+    display: inline-block;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.chapter-list a:hover {
+    background-color: #f5e4d6;
+    color: #a9552a;
+    transform: scale(1.04);
+}
+
+@media (max-width: 500px) {
+    .chapter-dashboard {
+        padding: 1.5rem;
+    }
+
+    .chapter-dashboard h1 {
+        font-size: 2rem;
+    }
+
+    .chapter-list a {
+        font-size: 1.2rem;
+    }
+}
