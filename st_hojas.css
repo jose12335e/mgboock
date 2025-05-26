@@ -1,23 +1,27 @@
 /* Fuentes importadas */
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&family=Playfair+Display&display=swap');
 
+/* RESET GENERAL */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 /* Estilos generales */
 body {
-  margin: 0;
-  padding: 20px;
   font-family: 'Quicksand', sans-serif;
-  background: #f5f0e6;
-  background-image: url('https://www.transparenttextures.com/patterns/paper.png');
+  background: #f5f0e6 url('https://www.transparenttextures.com/patterns/paper.png');
   background-size: cover;
   background-attachment: fixed;
   color: #4b2e2e;
   line-height: 1.8;
+  min-height: 100vh;
   display: flex;
   justify-content: center;
-  align-items: flex-start;
-  min-height: 100vh;
+  align-items: center;
+  padding: 1.5rem;
   flex-direction: column;
-  box-sizing: border-box;
 }
 
 /* Contenedor tipo libro */
@@ -33,7 +37,6 @@ body {
   text-align: justify;
   text-indent: 1.5em;
   margin: auto;
-  box-sizing: border-box;
 }
 
 /* Título */
@@ -131,32 +134,61 @@ button:hover {
 /* Inicio (PIN) */
 #auth-container {
   background-color: #fffef8;
-  padding: 2rem 1.5rem;
+  padding: 2rem;
   border-radius: 12px;
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
   text-align: center;
-  max-width: 350px;
-  margin: 3rem auto;
-  animation: fadeIn 0.6s ease-in-out;
-  font-family: 'Quicksand', sans-serif;
+  max-width: 400px;
   width: 100%;
-  box-sizing: border-box;
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+#auth-container h2 {
+  font-size: 1.7rem;
+  color: #7a3e1d;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
 }
 
 #auth-container input[type="password"] {
-      width: 100%;
-    padding: -2.2rem;
-    font-size: 2rem;
-    border: -3px solid #cfcfc5;
-    border-radius: 6px;
-    background-color: #fdf9f2;
-    margin-bottom: 2.2rem;
+  width: 100%;
+  padding: 0.9rem 1rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin-bottom: 1.2rem;
+  font-family: inherit;
+  background-color: #fdf9f2;
+}
+
+#auth-container button {
+  background-color: #8b4513;
+  color: white;
+  border: none;
+  padding: 0.7rem 1.4rem;
+  font-size: 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#auth-container button:hover {
+  background-color: #a9552a;
 }
 
 #error-message {
   color: crimson;
   font-size: 0.95rem;
+  margin-top: 0.5rem;
   display: none;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 /* Contenedor de éxito post-PIN */
@@ -165,7 +197,6 @@ button:hover {
   padding: 2rem;
   max-width: 600px;
   margin: 3rem auto;
-  box-sizing: border-box;
 }
 
 .success-box h2 {
@@ -227,12 +258,29 @@ button:hover {
   display: inline-block;
   border-radius: 8px;
   transition: all 0.3s ease;
+  position: relative;
 }
 
 .chapter-list a:hover {
   background-color: #f5e4d6;
   color: #a9552a;
   transform: scale(1.04);
+}
+
+/* Efecto fuego para capítulos */
+.chapter-list a::after {
+  content: "🔥";
+  position: absolute;
+  top: -5px;
+  right: -15px;
+  font-size: 1rem;
+  animation: flicker 1s infinite;
+}
+
+@keyframes flicker {
+  0% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.7; transform: scale(1.1); }
+  100% { opacity: 1; transform: scale(1); }
 }
 
 /* Responsive general */
@@ -267,9 +315,4 @@ button:hover {
     margin: 2rem 1rem;
     padding: 1.5rem;
   }
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
 }
