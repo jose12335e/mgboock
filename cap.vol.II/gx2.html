@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DESDE LO MÁS PROFUNDO - Tu Opinión</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Zeyada&family=Quicksand:wght@400;600&family=Playfair+Display&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="st_hojas.css">
+</head>
+<body>
+
+  <div class="book-container final-page">
+    <h1>Gracias por acompañarme en estas letras</h1>
+
+    <p class="intro-text">
+      Has llegado al final de este viaje. Cada palabra, cada sentimiento, fue escrito con el corazón. 
+      Ahora me encantaría saber qué te llevas de esta historia. Tu opinión es muy importante para mí.
+    </p>
+
+    <div class="opinion-form">
+      <label for="readerName">Tu nombre (opcional):</label>
+      <input type="text" id="readerName" name="readerName" placeholder="Ej: Un lector, tu nombre, etc.">
+
+      <label for="opinionText">¿Qué te pareció esta experiencia de lectura?</label>
+      <textarea id="opinionText" name="opinionText" rows="8" placeholder="Escribe aquí tu comentario, tus sentimientos, qué te hizo pensar..."></textarea>
+
+      <button onclick="submitOpinion()">Enviar Opinión</button>
+      <p id="formMessage" class="hidden"></p>
+    </div>
+
+    <div class="nav">
+      <button onclick="goToChapter('gracias.html')">← Volver al final del libro</button>
+      <button onclick="goToChapter('vlm/volumen.html')">Reiniciar Lectura</button>
+    </div>
+  </div>
+
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore-compat.js"></script>
+  
+  <script>
+    // Tu configuración de Firebase (proporcionada por ti)
+    const firebaseConfig = {
+      apiKey: "AIzaSyCUE04X7dL8r6AbVfmvPjyHpU3FLd1r5iI",
+      authDomain: "libroweb-618dd.firebaseapp.com",
+      projectId: "libroweb-618dd",
+      storageBucket: "libroweb-618dd.firebasestorage.app",
+      messagingSenderId: "1029530226705",
+      appId: "1:1029530226705:web:c39cf657e4ca336d61a1b0",
+      measurementId: "G-32FW6XFFXM"
+    };
+
+    // Inicializa Firebase
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore(); // Obtén una referencia a Firestore
+  </script>
+
+  <script src="cg_hojas.js"></script>
+  <audio id="audio" src="para que no pares2.mp3"></audio>
+
+</body>
+</html>

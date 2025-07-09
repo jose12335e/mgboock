@@ -1,0 +1,505 @@
+/* --- Fuentes Importadas --- */
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&family=Playfair+Display&family=Zeyada&display=swap');
+
+/* --- RESET BÁSICO --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* --- Estilos Generales del Cuerpo (body) --- */
+body {
+    font-family: 'Quicksand', sans-serif;
+    background: #f5f0e6 url('https://www.transparenttextures.com/patterns/paper.png');
+    background-size: cover;
+    background-attachment: fixed;
+    color: #4b2e2e;
+    line-height: 1.8;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1.5rem;
+}
+
+/* --- Contenedor Principal (tipo libro) --- */
+.book-container {
+    max-width: 800px;
+    width: 100%;
+    background-color: #fffef8;
+    padding: 2rem;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.1);
+    border: 1px solid #d2cfc5;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    text-align: justify;
+    text-indent: 1.5em;
+    margin: 2rem auto;
+}
+
+/* --- Títulos (h1, h2) --- */
+h1, h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    color: #7a3e1d;
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+/* Si quieres que los títulos de capítulos usen Zeyada, puedes usar una clase o ser más específico: */
+.book-container h1 {
+    font-family: 'Zeyada', cursive;
+    font-size: 3rem;
+    line-height: 1.2;
+}
+
+/* --- Párrafos --- */
+p {
+    margin-bottom: 1em;
+    text-indent: 0;
+}
+
+/* Estilo para las líneas divisorias */
+hr {
+    border: none;
+    border-top: 1px dashed #d2cfc5;
+    margin: 2em auto;
+    width: 50%;
+}
+
+/* --- Botones Genéricos (como PLAYMIUSIC) --- */
+button {
+    background-color: #8b4513;
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    font-size: 1.1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin: 2rem auto;
+    display: block;
+    font-family: 'Quicksand', sans-serif;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+button:hover {
+    background-color: #a9552a;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* --- Navegación (Botones ANTERIOR/SIGUIENTE) --- */
+.nav {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #d2cfc5;
+}
+
+.nav button {
+    flex: 1;
+    margin: 0 0.5rem;
+    padding: 0.7rem 1.2rem;
+    font-size: 1rem;
+    background-color: #5a3e2b;
+    border-radius: 8px;
+}
+
+.nav button:hover {
+    background-color: #7a3e1d;
+    transform: translateY(-1px);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* --- Contenedor del Árbol y Animación (Si se usa en el futuro) --- */
+#tree-container {
+    position: relative;
+    width: 100%;
+    min-height: 400px;
+    background: url('../imagenes/mi_imagen_chatgpt.png') no-repeat center center;
+    background-size: cover;
+    overflow: hidden;
+    margin-top: 20px;
+}
+
+.heart {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: #ff69b4;
+    transform: rotate(-45deg);
+    animation: fall linear infinite;
+    z-index: -1;
+}
+
+.heart::before,
+.heart::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: #ff69b4;
+    border-radius: 50%;
+    z-index: -1;
+}
+
+.heart::before {
+    top: -10px;
+    left: 0;
+}
+
+.heart::after {
+    top: 0;
+    left: 10px;
+}
+
+@keyframes fall {
+    0% { top: -50px; opacity: 0; }
+    50% { opacity: 1; }
+    100% { top: 100vh; opacity: 0; }
+}
+
+/* --- Inicio (PIN) / auth-container --- */
+#auth-container {
+    background-color: #fffef8;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 400px;
+    width: 100%;
+    animation: fadeIn 0.6s ease-in-out;
+    margin: 2rem auto;
+}
+
+#auth-container h2 {
+    font-size: 1.7rem;
+    color: #7a3e1d;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    font-family: 'Playfair Display', serif;
+}
+
+#auth-container input[type="password"] {
+    width: 100%;
+    padding: 0.9rem 1rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin-bottom: 1.2rem;
+    font-family: 'Quicksand', sans-serif;
+    background-color: #fdf9f2;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+#auth-container input[type="password"]:focus {
+    border-color: #8b4513;
+}
+
+#auth-container button {
+    background-color: #8b4513;
+    color: white;
+    border: none;
+    padding: 0.7rem 1.4rem;
+    font-size: 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin: 0.5rem auto;
+}
+
+#auth-container button:hover {
+    background-color: #a9552a;
+    transform: translateY(-1px);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+#error-message {
+    color: crimson;
+    font-size: 0.95rem;
+    margin-top: 0.5rem;
+    display: none;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- Contenedor de Éxito Post-PIN --- */
+.success-box {
+    text-align: center;
+    padding: 2rem;
+    max-width: 600px;
+    margin: 3rem auto;
+    background-color: #fffef8;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.success-box h2 {
+    font-size: 2rem;
+    color: #7a3e1d;
+    margin-top: 1rem;
+    font-family: 'Playfair Display', serif;
+}
+
+.success-box p {
+    font-size: 1.2rem;
+    margin: 1rem 0 2rem;
+    line-height: 1.6;
+}
+
+.success-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* --- Dashboard de Capítulos --- */
+.chapter-dashboard {
+    max-width: 600px;
+    margin: 4rem auto;
+    background-color: #fffef8;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    font-family: 'Quicksand', sans-serif;
+}
+
+.chapter-dashboard h1 {
+    font-size: 2.4rem;
+    color: #7a3e1d;
+    margin-bottom: 2rem;
+    font-family: 'Playfair Display', serif;
+}
+
+.chapter-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.chapter-list li {
+    margin-bottom: 1rem;
+}
+
+.chapter-list a {
+    font-size: 1.2rem;
+    color: #5a3e2b;
+    text-decoration: none;
+    padding: 0.7rem 1.5rem;
+    display: inline-block;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.chapter-list a:hover {
+    background-color: #f5e4d6;
+    color: #a9552a;
+    transform: translateY(-2px) scale(1.04);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+/* Efecto fuego para capítulos (mantengo si lo quieres en todos los enlaces de la lista) */
+.chapter-list a::after {
+    content: "🔥";
+    position: absolute;
+    top: -5px;
+    right: -15px;
+    font-size: 1rem;
+    animation: flicker 1s infinite alternate;
+}
+
+@keyframes flicker {
+    0% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.7; transform: scale(1.05); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+/* --- Sección de Opiniones --- */
+.opinion-form {
+    margin-top: 2.5rem;
+    padding-top: 2rem;
+    border-top: 1px dashed #d2cfc5;
+    text-align: left;
+}
+
+.opinion-form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: #5a3e2b;
+}
+
+.opinion-form input[type="text"],
+.opinion-form textarea {
+    width: 100%;
+    padding: 0.8rem;
+    margin-bottom: 1.5rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 1rem;
+    background-color: #fdf9f2;
+    resize: vertical;
+    transition: border-color 0.3s ease;
+}
+
+.opinion-form input[type="text"]:focus,
+.opinion-form textarea:focus {
+    border-color: #8b4513;
+    outline: none;
+}
+
+.opinion-form button {
+    margin-top: 1rem;
+    display: block;
+    width: auto;
+    padding: 0.9rem 1.8rem;
+}
+
+#formMessage {
+  text-align: center;
+  margin-top: 1.5rem;
+  padding: 0.8rem;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: opacity 0.5s ease;
+}
+
+#formMessage.hidden {
+  opacity: 0;
+  height: 0;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+#formMessage.error-message {
+  background-color: #ffe6e6;
+  color: crimson;
+  border: 1px solid crimson;
+}
+
+#formMessage.success-message {
+  background-color: #e6ffe6;
+  color: forestgreen;
+  border: 1px solid forestgreen;
+}
+
+/* Ajuste para el texto introductorio en la página final */
+.book-container.final-page .intro-text {
+    text-align: center;
+    text-indent: 0;
+    margin-bottom: 2rem;
+    font-size: 1.15rem;
+    color: #5a3e2b;
+}
+
+/* --- Responsive General --- */
+@media (max-width: 768px) {
+    html {
+        font-size: 15px;
+    }
+
+    body {
+        padding: 1rem;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    .book-container h1 {
+        font-size: 2.2rem;
+    }
+
+    h2 {
+        font-size: 1.8rem;
+    }
+
+    .book-container {
+        padding: 1.2rem;
+        font-size: 1rem;
+        text-indent: 1em;
+    }
+
+    button {
+        font-size: 0.95rem;
+        padding: 0.7rem 1.2rem;
+    }
+
+    .nav {
+        flex-direction: column;
+        gap: 1rem;
+        margin-top: 2rem;
+    }
+
+    .nav button {
+        margin: 0;
+        width: 100%;
+    }
+
+    .chapter-dashboard h1 {
+        font-size: 1.9rem;
+    }
+
+    .chapter-list a {
+        font-size: 1.05rem;
+        padding: 0.6rem 1.2rem;
+    }
+
+    #auth-container {
+        padding: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 2.2rem;
+    }
+
+    .book-container h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    .book-container {
+        padding: 1rem;
+        font-size: 0.95rem;
+    }
+
+    p {
+        margin-bottom: 0.8em;
+    }
+
+    .chapter-list a {
+        font-size: 1rem;
+        padding: 0.5rem 1rem;
+    }
+
+    .chapter-list a::after {
+        font-size: 0.8rem;
+        right: -10px;
+    }
+}
