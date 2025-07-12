@@ -1,0 +1,596 @@
+/* st_hojas.css */
+
+/* --- FUENTES --- */
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+
+/* --- VARIABLES CSS --- */
+:root {
+    --color-primary: #8b4513;
+    --color-primary-light: #a9552a;
+    --color-text-dark: #4b2e2e;
+    --color-text-medium: #5a3e2b;
+    --color-headline: #7a3e1d;
+    --color-background-body: #f5f0e6;
+    --color-background-container: #fffef8;
+    --color-border: #d2cfc5;
+    --color-error: crimson;
+    --color-success: #28a745;
+    --color-heart: #ff69b4;
+
+    --shadow-light: rgba(0, 0, 0, 0.08);
+    --shadow-medium: rgba(0, 0, 0, 0.15);
+
+    --spacing-xs: 0.5rem;
+    --spacing-s: 1rem;
+    --spacing-m: 1.5rem;
+    --spacing-l: 2rem;
+    --spacing-xl: 3rem;
+    --spacing-xxl: 4rem;
+
+    --border-radius-s: 6px;
+    --border-radius-m: 10px;
+    --border-radius-l: 12px;
+}
+
+/* --- RESET GENERAL --- */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 100%;
+}
+
+body {
+    font-family: 'Quicksand', sans-serif;
+    background: var(--color-background-body) url('https://www.transparenttextures.com/patterns/paper.png') repeat;
+    background-size: auto;
+    background-attachment: fixed;
+    color: var(--color-text-dark);
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: var(--spacing-l);
+    overflow-x: hidden;
+}
+
+/* --- CONTENEDOR PRINCIPAL (Book Container) --- */
+.book-container {
+    max-width: 800px;
+    width: 100%;
+    background-color: var(--color-background-container);
+    padding: var(--spacing-l);
+    box-shadow: 0 5px 25px var(--shadow-medium);
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius-m);
+    font-size: 1.05rem;
+    text-align: justify;
+    text-indent: 1.8em;
+    margin: auto;
+    margin-bottom: var(--spacing-l);
+}
+
+.book-container p {
+    margin-bottom: 0.8em;
+    text-indent: 1.8em;
+}
+
+.book-container p:first-of-type {
+    text-indent: 0;
+}
+
+/* --- TÍTULOS --- */
+h1, h2 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+    color: var(--color-headline);
+    text-align: center;
+    margin-bottom: var(--spacing-l);
+    line-height: 1.2;
+}
+
+h1 {
+    font-size: 2.8rem;
+    margin-top: var(--spacing-s);
+}
+
+h2 {
+    font-size: 2.2rem;
+}
+
+/* --- BOTONES GENERALES --- */
+button {
+    background-color: var(--color-primary);
+    color: white;
+    border: none;
+    padding: 0.9rem 1.8rem;
+    font-size: 1.1rem;
+    border-radius: var(--border-radius-s);
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    margin: var(--spacing-l) auto;
+    display: block;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 500;
+    letter-spacing: 0.03em;
+    box-shadow: 0 2px 5px var(--shadow-light);
+}
+
+button:hover {
+    background-color: var(--color-primary-light);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px var(--shadow-medium);
+}
+
+button:active {
+    transform: translateY(0);
+    box-shadow: 0 1px 3px var(--shadow-light);
+}
+
+button:focus-visible {
+    outline: 2px solid var(--color-primary-light);
+    outline-offset: 3px;
+}
+
+/* --- SEPARADOR DE GUIONES --- */
+.separador-guiones {
+    position: relative;
+    height: 1px;
+    background: transparent;
+    border: none;
+    margin: var(--spacing-l) auto;
+    width: 50%;
+    overflow: hidden;
+    text-indent: -9999px; 
+    white-space: nowrap; 
+}
+
+.separador-guiones::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    border-top: 1px dashed var(--color-border);
+}
+
+/* --- NAVEGACIÓN DENTRO DEL LIBRO --- */
+.nav {
+    display: flex;
+    justify-content: space-between;
+    margin-top: var(--spacing-xl);
+    padding-top: var(--spacing-l);
+    border-top: 1px solid var(--color-border);
+}
+
+.nav button {
+    flex-grow: 1;
+    margin: 0 var(--spacing-xs);
+    min-width: 120px;
+}
+
+.nav a {
+    font-size: 1.15rem;
+    color: var(--color-text-medium);
+    text-decoration: none;
+    padding: var(--spacing-xs) var(--spacing-s);
+    border-radius: var(--border-radius-s);
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.nav a:hover {
+    color: var(--color-primary-light);
+    transform: translateY(-2px);
+    background-color: var(--color-background-body);
+}
+
+/* --- SECCIONES DE AUTENTICACIÓN (PIN) --- */
+#auth-container {
+    background-color: var(--color-background-container);
+    padding: var(--spacing-l);
+    border-radius: var(--border-radius-l);
+    box-shadow: 0 8px 25px var(--shadow-medium);
+    text-align: center;
+    max-width: 450px;
+    width: 100%;
+    animation: fadeIn 0.8s ease-out;
+    margin: var(--spacing-xl) auto;
+    border: 1px solid var(--color-border);
+}
+
+#auth-container h2 {
+    font-size: 2rem;
+    color: var(--color-headline);
+    margin-bottom: var(--spacing-l);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-xs);
+}
+
+#auth-container input[type="password"] {
+    width: calc(100% - 2rem);
+    padding: 1rem;
+    font-size: 1.1rem;
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius-m);
+    margin-bottom: var(--spacing-m);
+    font-family: 'Quicksand', sans-serif;
+    background-color: #fdf9f2;
+    color: var(--color-text-dark);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#auth-container input[type="password"]:focus {
+    outline: none;
+    border-color: var(--color-primary-light);
+    box-shadow: 0 0 0 3px rgba(139, 69, 19, 0.2);
+}
+
+#auth-container button {
+    padding: 0.9rem 1.8rem;
+    font-size: 1.1rem;
+    margin: 0 auto;
+}
+
+#error-message {
+    color: var(--color-error);
+    font-size: 0.95rem;
+    margin-top: var(--spacing-s);
+    text-align: center;
+    display: none;
+    font-weight: 500;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- CONTENEDOR DE ÉXITO POST-PIN --- */
+.success-box {
+    text-align: center;
+    padding: var(--spacing-l);
+    max-width: 650px;
+    margin: var(--spacing-xxl) auto;
+    background-color: var(--color-background-container);
+    border-radius: var(--border-radius-l);
+    box-shadow: 0 5px 25px var(--shadow-medium);
+    border: 1px solid var(--color-border);
+}
+
+.success-box h2 {
+    font-size: 2.2rem;
+    color: var(--color-headline);
+    margin-top: var(--spacing-s);
+    margin-bottom: var(--spacing-m);
+}
+
+.success-box p {
+    font-size: 1.15rem;
+    margin: var(--spacing-s) 0 var(--spacing-l);
+    line-height: 1.7;
+    text-indent: 0;
+}
+
+.success-image {
+    max-width: 90%;
+    height: auto;
+    border-radius: var(--border-radius-m);
+    margin-bottom: var(--spacing-l);
+    box-shadow: 0 5px 15px var(--shadow-light);
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* --- DASHBOARD DE CAPÍTULOS --- */
+.chapter-dashboard {
+    max-width: 650px;
+    margin: var(--spacing-xxl) auto;
+    background-color: var(--color-background-container);
+    padding: var(--spacing-l);
+    border-radius: var(--border-radius-l);
+    box-shadow: 0 5px 25px var(--shadow-medium);
+    text-align: center;
+    font-family: 'Quicksand', sans-serif;
+    border: 1px solid var(--color-border);
+}
+
+.chapter-dashboard h1 {
+    font-size: 2.6rem;
+    color: var(--color-headline);
+    margin-bottom: var(--spacing-xl);
+    font-weight: 700;
+}
+
+.chapter-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-s);
+}
+
+.chapter-list li {
+    margin-bottom: 0;
+    padding: var(--spacing-xs);
+}
+
+.chapter-list a {
+    font-size: 1.1rem;
+    color: var(--color-text-medium);
+    text-decoration: none;
+    padding: var(--spacing-m) var(--spacing-s);
+    display: block;
+    border-radius: var(--border-radius-s);
+    transition: all 0.3s ease;
+    position: relative;
+    background-color: #fcfaf5;
+    border: 1px solid var(--color-border);
+    text-align: left;
+    font-weight: 500;
+}
+
+.chapter-list a:hover {
+    background-color: #f0e9e0;
+    color: var(--color-primary);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px var(--shadow-light);
+}
+
+.chapter-list a::after {
+    content: "🔥";
+    position: absolute;
+    top: var(--spacing-xs);
+    right: var(--spacing-s);
+    font-size: 1rem;
+    animation: flicker 1s infinite alternate;
+    opacity: 0.9;
+}
+
+@keyframes flicker {
+    0% { opacity: 0.8; transform: scale(0.95); }
+    50% { opacity: 1; transform: scale(1.05); }
+    100% { opacity: 0.8; transform: scale(0.95); }
+}
+
+/* --- CONTENEDOR DEL ÁRBOL Y ANIMACIÓN --- */
+#tree-container {
+    position: relative;
+    width: 100%;
+    min-height: 400px;
+    background: url('../imagenes/mi_imagen_chatgpt.png') no-repeat center center;
+    background-size: cover;
+    overflow: hidden;
+    margin-top: var(--spacing-l);
+    border-radius: var(--border-radius-m);
+    box-shadow: 0 5px 15px var(--shadow-light);
+}
+
+.heart {
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    background-color: var(--color-heart);
+    transform: rotate(-45deg);
+    animation: fall linear infinite;
+    z-index: 10;
+}
+
+.heart::before,
+.heart::after {
+    content: '';
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    background-color: var(--color-heart);
+    border-radius: 50%;
+    z-index: -1;
+}
+
+.heart::before {
+    top: -12.5px;
+    left: 0;
+}
+
+.heart::after {
+    top: 0;
+    left: 12.5px;
+}
+
+@keyframes fall {
+    0% { top: -5%; opacity: 0; transform: translateX(0) scale(0.8) rotate(-45deg); }
+    20% { opacity: 1; }
+    100% { top: 105%; opacity: 0; transform: translateX(calc(var(--rand-x) * 1px)) scale(1.2) rotate(135deg); }
+}
+
+/* --- RESPONSIVE DESIGN --- */
+@media (max-width: 768px) {
+    html {
+        font-size: 95%;
+    }
+
+    body {
+        padding: var(--spacing-m);
+    }
+
+    h1 {
+        font-size: 2.2rem;
+    }
+    h2 {
+        font-size: 1.8rem;
+    }
+
+    .book-container {
+        padding: var(--spacing-m);
+        font-size: 1rem;
+        text-indent: 1.5em;
+    }
+    .book-container p {
+        text-indent: 1.5em;
+    }
+    .book-container p:first-of-type {
+        text-indent: 0;
+    }
+
+    button {
+        padding: 0.7rem 1.4rem;
+        font-size: 1rem;
+    }
+
+    .nav {
+        flex-direction: column;
+        align-items: center;
+    }
+    .nav button {
+        width: 90%;
+        margin: var(--spacing-s) 0;
+    }
+
+    #auth-container, .success-box, .chapter-dashboard {
+        padding: var(--spacing-m);
+        margin: var(--spacing-xl) var(--spacing-s);
+    }
+
+    #auth-container h2 {
+        font-size: 1.6rem;
+    }
+
+    .chapter-dashboard h1 {
+        font-size: 2rem;
+        margin-bottom: var(--spacing-l);
+    }
+
+    .chapter-list {
+        grid-template-columns: 1fr;
+    }
+
+    .chapter-list a {
+        font-size: 1rem;
+        padding: var(--spacing-s) var(--spacing-s);
+    }
+    .chapter-list a::after {
+        font-size: 0.9rem;
+        top: 3px;
+        right: 8px;
+    }
+}
+
+@media (max-width: 480px) {
+    html {
+        font-size: 90%;
+    }
+    h1 {
+        font-size: 1.9rem;
+    }
+    h2 {
+        font-size: 1.6rem;
+    }
+    .book-container {
+        padding: var(--spacing-s);
+    }
+    #auth-container input[type="password"] {
+        padding: 0.8rem;
+    }
+}
+/* --- Sección de Opiniones --- */
+.opinion-form {
+    margin-top: 2.5rem;
+    padding-top: 2rem;
+    border-top: 1px dashed #d2cfc5;
+    text-align: left; /* Alinea los elementos del formulario a la izquierda */
+}
+
+.opinion-form label {
+    display: block; /* Cada etiqueta en su propia línea */
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: #5a3e2b;
+}
+
+.opinion-form input[type="text"],
+.opinion-form textarea {
+    width: 100%;
+    padding: 0.8rem;
+    margin-bottom: 1.5rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 1rem;
+    background-color: #fdf9f2;
+    resize: vertical; /* Permite redimensionar verticalmente el textarea */
+    transition: border-color 0.3s ease;
+}
+
+
+.opinion-form input[type="text"]:focus,
+.opinion-form textarea:focus {
+    border-color: #8b4513;
+    outline: none;
+}
+
+.opinion-form button {
+    /* Reutiliza los estilos de los botones generales */
+    margin-top: 1rem; /* Margen superior para separarlo del textarea */
+    display: block; /* Asegura que el botón ocupe su propia línea */
+    width: auto; /* Ajusta el ancho al contenido */
+    padding: 0.9rem 1.8rem;
+}
+
+#formMessage {
+  text-align: center;
+  margin-top: 1.5rem;
+  padding: 0.8rem;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: opacity 0.5s ease;
+}
+
+#formMessage.hidden {
+  opacity: 0;
+  height: 0;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+#formMessage.error-message {
+  background-color: #ffe6e6; /* Fondo rojo claro */
+  color: crimson;
+  border: 1px solid crimson;
+}
+
+#formMessage.success-message {
+  background-color: #e6ffe6; /* Fondo verde claro */
+  color: forestgreen;
+  border: 1px solid forestgreen;
+}
+
+/* Ajuste para el texto introductorio en la página final */
+.book-container.final-page .intro-text {
+    text-align: center;
+    text-indent: 0; /* No queremos sangría en el texto introductorio */
+    margin-bottom: 2rem;
+    font-size: 1.15rem;
+    color: #5a3e2b;
+}
+/* --- ESTILOS ESPECÍFICOS PARA EL CALENDARIO (input[type="date"]) --- */
+ input[type="date"] {
+          font-family: 'Quicksand', sans-serif;
+          font-size: 1rem;
+          padding: 0.5rem;
+          border: 1px solid #5a3e2b;
+          border-radius: 6px;
+          border-color: #5a3e2b;
+          width: 100%;
+          box-sizing: border-box;
+        }
