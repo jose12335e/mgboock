@@ -46,13 +46,19 @@
         <p>Con todas sus ausencias. Con todas sus señales confusas. Con todos los silencios que me han gritado más que las palabras. Y eso, aunque me duela admitirlo, no ha cambiado. Ni un poco. A pesar de todo. Sí… Sí la quiero.</p>
 
         <div class="nav">
-            <button onclick="goToChapter('introduccion.html')">← INTRODUCCION</button> 
+            <button onclick="goToChapter('introduccion.html')">← INTRODUCCIÓN</button> 
             <button onclick="goToChapter('capitulo2.html')">SIGUIENTE →</button>
         </div>
     </div>
 
-    <script src="/js/cg_hojas.js"></script> 
-    <audio id="audio" src="/miusic/para que no pares2.mp3"></audio>
+    <script src="../js/cg_hojas.js"></script> 
+    <audio id="audio" src="../miusic/para que no pares2.mp3"></audio>
+
+    <script>
+      function play() {
+        document.getElementById('audio').play();
+      }
+    </script>
 
 </body>
 </html>
